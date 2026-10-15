@@ -1,0 +1,56 @@
+/* ---------- 1. CSS foundation ---------- */
+
+:root {
+    --wood-dark: #4b2e18;
+    --wood: #7a4a21;
+    --wood-light: #a9702f;
+    --hole: #3c2412;
+    --seed: #f7e7c4;
+    --green: #2e7d32;
+    --red: #b3261e;
+    --text: #2b1a0e;
+    --card: #fff8ec;
+}
+
+/* ---------- 2. Global styles ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, #f7e2bd, transparent 45%),
+        radial-gradient(circle at bottom right, #e8c48d, transparent 45%),
+        #f4e3c1;
+}
+
+/* ---------- 3. Main layout ---------- */
+
+.game-shell {
+    width: min(940px, 100%);
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
+/* ---------- 4. Game header ---------- */
+
+.game-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+    color: var(--wood-dark);
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.subtitle {
+    margin: 6px 0 0;
+    color: #6d4c2f;
+}
