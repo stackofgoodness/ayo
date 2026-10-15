@@ -16,6 +16,35 @@
             <p class="subtitle">Make your move by choosing a hole</p>
 
         </header>
+
+
+        <section class="scoreboard">
+
+            <!-- Player 2 -->
+            <div class="player-card" id="player2Card">
+                <h2>Player 2</h2>
+                <p>Captured: <span id="captured2">0</span></p>
+            </div>
+
+            <!-- Game status and controls -->
+            <div class="status-card">
+                <p id="status">Player 1's turn</p>
+
+                <div class="controls">
+                    <button id="undoBtn" type="button">Undo</button>
+                    <button id="rulesBtn" type="button">Rules</button>
+                    <button id="restartBtn" type="button">Restart</button>
+                </div>
+            </div>
+
+            <!-- Player 1 -->
+            <div class="player-card active" id="player1Card">
+                <h2>Player 1</h2>
+                <p>Captured: <span id="captured1">0</span></p>
+            </div>
+
+        </section>
+
     </main>
 
 </body>

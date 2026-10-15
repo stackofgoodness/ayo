@@ -54,3 +54,90 @@ h1 {
     margin: 6px 0 0;
     color: #6d4c2f;
 }
+
+
+/* ---------- Scoreboard layout ---------- */
+
+.scoreboard {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* ---------- Player and status cards ---------- */
+
+.player-card,
+.status-card {
+    background: var(--card);
+    border: 2px solid var(--wood-light);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(75, 46, 24, 0.15);
+}
+
+.player-card {
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.player-card h2 {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+}
+
+.player-card p {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Highlight the current player */
+
+.player-card.active {
+    border-color: var(--green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.25);
+}
+
+/* ---------- Status message ---------- */
+
+.status-card {
+    text-align: center;
+}
+
+#status {
+    margin: 0 0 10px;
+    font-weight: 700;
+    min-height: 24px;
+}
+
+/* ---------- Game controls ---------- */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+button {
+    font: inherit;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: var(--wood);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+    background: var(--wood-dark);
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
