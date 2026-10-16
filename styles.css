@@ -10,7 +10,15 @@
     --red: #b3261e;
     --text: #2b1a0e;
     --card: #fff8ec;
+
+    /* Seed jar colours */
+    --player1-seed: #d6a24f;
+    --player2-seed: #7795d0;
+    --jar-glass: rgba(255, 248, 236, 0.55);
+    --jar-border: #98734b;
 }
+
+
 
 /* ---------- 2. Global styles ---------- */
 
@@ -305,4 +313,54 @@ button:disabled {
 .hole:disabled {
     cursor: not-allowed;
     opacity: 0.75;
+}
+
+/* Individual seeds inside board holes */
+.seed {
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #805025;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%,
+            #fff2cf,
+            var(--seed) 55%,
+            #c5a16b);
+    box-shadow:
+        inset -1px -1px 2px rgba(75, 46, 24, 0.2),
+        0 1px 2px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+/* Player 1's gold seeds */
+.seed.player1-seed {
+    background: radial-gradient(circle at 35% 30%,
+            #f8d995,
+            var(--player1-seed));
+    border-color: #805025;
+}
+
+/* Player 2's blue seeds */
+.seed.player2-seed {
+    background: radial-gradient(circle at 35% 30%,
+            #d9e5ff,
+            var(--player2-seed));
+    border-color: #344d80;
+}
+
+/* Seeds being animated between holes */
+.flying-seed {
+    position: fixed;
+    z-index: 100;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #805025;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%,
+            #fff2cf,
+            var(--seed) 55%,
+            #c5a16b);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
 }
