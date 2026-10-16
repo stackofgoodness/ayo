@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayò</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="game-shell">
+
+        <header class="game-header">
+            <h1>Ayò</h1>
+            <p class="subtitle">Make your move by choosing a hole</p>
+
+        </header>
+
+
+        <section class="scoreboard">
+
+            <!-- Player 2 -->
+            <div class="player-card" id="player2Card">
+                <h2>Player 2</h2>
+                <p>Captured: <span id="captured2">0</span></p>
+
+                <div class="seed-jar player2-jar" id="player2Jar">
+                    <h3>Player 2's Jar</h3>
+
+                    <div class="jar-visual">
+                        <div class="jar-seeds" id="player2JarSeeds"></div>
+                    </div>
+
+                    <p>Seeds: <span id="player2JarCount">0</span></p>
+                </div>
+            </div>
+
+            <!-- Game status and controls -->
+            <div class="status-card">
+                <p id="status">Player 1's turn</p>
+
+                <div class="controls">
+                    <button id="undoBtn" type="button">Undo</button>
+                    <button id="rulesBtn" type="button">Rules</button>
+                    <button id="restartBtn" type="button">Restart</button>
+                </div>
+            </div>
+
+            <!-- Player 1 -->
+            <div class="player-card active" id="player1Card">
+                <h2>Player 1</h2>
+                <p>Captured: <span id="captured1">0</span></p>
+
+                <div class="seed-jar player1-jar" id="player1Jar">
+                    <h3>Player 1's Jar</h3>
+
+                    <div class="jar-visual">
+                        <div class="jar-seeds" id="player1JarSeeds"></div>
+                    </div>
+
+                    <p>Seeds: <span id="player1JarCount">0</span></p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Game board -->
+        <section class="board-wrap">
+
+            <div class="board" id="board">
+
+                <!-- Player 2's row -->
+                <div class="row" id="row2">
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                </div>
+
+                <!-- Player 1's row -->
+                <div class="row" id="row1">
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                </div>
+
+                <!-- Animated hand -->
+                <div class="hand" id="hand" aria-hidden="true">👆</div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
