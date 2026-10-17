@@ -72,33 +72,59 @@
 
                 <!-- Player 2's row -->
                 <div class="row" id="row2">
-                    <div class="hole">
-                        <span class="seed player1-seed" style="top: 25%; left: 30%;"></span>
-                        <span class="seed player1-seed" style="top: 45%; left: 55%;"></span>
-                        <span class="seed player1-seed" style="top: 60%; left: 35%;"></span>
-                        <span class="seed player1-seed" style="top: 35%; left: 65%;"></span>
-                    </div>
+                    <div class="hole"></div>
                 </div>
 
                 <!-- Player 1's row -->
                 <div class="row" id="row1">
-                    <div class="hole">
-                        <span class="seed player1-seed" style="top: 25%; left: 30%;"></span>
-                        <span class="seed player1-seed" style="top: 45%; left: 55%;"></span>
-                        <span class="seed player1-seed" style="top: 60%; left: 35%;"></span>
-                        <span class="seed player1-seed" style="top: 35%; left: 65%;"></span>
-                    </div>
+                    <div class="hole"></div>
                 </div>
 
                 <!-- Animated hand -->
                 <div class="hand" id="hand" aria-hidden="true">👆</div>
 
             </div>
-
         </section>
+
+        <!-- Game hint -->
+        <p class="hint">
+            Choose one of your holes to pick up and sow your seeds.
+        </p>
+
+        <!-- Rules dialog -->
+        <dialog id="rulesDialog" class="rules-dialog">
+            <div class="rules-content">
+                <h2>How to Play Ayò</h2>
+
+                <ol>
+                    <li>Each player starts with four seeds in each of their six holes.</li>
+                    <li>Choose one of your holes to pick up all its seeds.</li>
+                    <li>Move around the board, dropping one seed into each hole in turn.</li>
+                    <li>When a hole reaches exactly four seeds, those seeds may be captured according to the game's
+                        capture rules.</li>
+                    <li>Your captured seeds are added to your seed jar.</li>
+                    <li>When a round ends, the player with the most captured seeds wins the round.</li>
+                </ol>
+
+                <button id="closeRulesBtn" type="button">Close Rules</button>
+            </div>
+        </dialog>
 
     </main>
 
 </body>
+<script>
+    const rulesDialog = document.getElementById("rulesDialog");
+    const rulesBtn = document.getElementById("rulesBtn");
+    const closeRulesBtn = document.getElementById("closeRulesBtn");
+
+    rulesBtn.addEventListener("click", () => {
+        rulesDialog.showModal();
+    });
+
+    closeRulesBtn.addEventListener("click", () => {
+        rulesDialog.close();
+    });
+</script>
 
 </html>
