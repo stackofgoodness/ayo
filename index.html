@@ -2,44 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayò</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayo Olopon — Seed Movement Game</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
     <main class="game-shell">
-
         <header class="game-header">
-            <h1>Ayò</h1>
-            <p class="subtitle">Make your move by choosing a hole</p>
-
+            <h1>Ayò Ọlọ́pọ́n</h1>
+            <p class="subtitle">Click a hole to pick up and sow your seeds</p>
         </header>
 
-
         <section class="scoreboard">
-
-            <!-- Player 2 -->
             <div class="player-card" id="player2Card">
                 <h2>Player 2</h2>
                 <p>Captured: <span id="captured2">0</span></p>
-
-                <div class="seed-jar player2-jar" id="player2Jar">
-                    <h3>Player 2's Jar</h3>
-
-                    <div class="jar-visual">
-                        <div class="jar-seeds" id="player2JarSeeds"></div>
-                    </div>
-
-                    <p>Seeds: <span id="player2JarCount">0</span></p>
-                </div>
             </div>
 
-            <!-- Game status and controls -->
             <div class="status-card">
-                <p id="status">Player 1's turn</p>
-
+                <p id="status">Player 1’s turn</p>
                 <div class="controls">
                     <button id="undoBtn" type="button">Undo</button>
                     <button id="rulesBtn" type="button">Rules</button>
@@ -47,84 +30,45 @@
                 </div>
             </div>
 
-            <!-- Player 1 -->
             <div class="player-card active" id="player1Card">
                 <h2>Player 1</h2>
                 <p>Captured: <span id="captured1">0</span></p>
-
-                <div class="seed-jar player1-jar" id="player1Jar">
-                    <h3>Player 1's Jar</h3>
-
-                    <div class="jar-visual">
-                        <div class="jar-seeds" id="player1JarSeeds"></div>
-                    </div>
-
-                    <p>Seeds: <span id="player1JarCount">0</span></p>
-                </div>
             </div>
-
         </section>
 
-        <!-- Game board -->
         <section class="board-wrap">
-
             <div class="board" id="board">
-
-                <!-- Player 2's row -->
-                <div class="row" id="row2">
-                    <div class="hole"></div>
-                </div>
-
-                <!-- Player 1's row -->
-                <div class="row" id="row1">
-                    <div class="hole"></div>
-                </div>
-
-                <!-- Animated hand -->
+                <div class="row" id="row2"></div>
+                <div class="row" id="row1"></div>
                 <div class="hand" id="hand" aria-hidden="true">👆</div>
-
             </div>
         </section>
 
-        <!-- Game hint -->
         <p class="hint">
-            Choose one of your holes to pick up and sow your seeds.
+            Click one of your holes. All seeds are picked up, then dropped one by
+            one clockwise. If the final seed lands in a hole that already has
+            seeds, all seeds in that hole are picked up and sown again.
         </p>
-
-        <!-- Rules dialog -->
-        <dialog id="rulesDialog" class="rules-dialog">
-            <div class="rules-content">
-                <h2>How to Play Ayò</h2>
-
-                <ol>
-                    <li>Each player starts with four seeds in each of their six holes.</li>
-                    <li>Choose one of your holes to pick up all its seeds.</li>
-                    <li>Move around the board, dropping one seed into each hole in turn.</li>
-                    <li>When a hole reaches exactly four seeds, those seeds may be captured according to the game's
-                        capture rules.</li>
-                    <li>Your captured seeds are added to your seed jar.</li>
-                    <li>When a round ends, the player with the most captured seeds wins the round.</li>
-                </ol>
-
-                <button id="closeRulesBtn" type="button">Close Rules</button>
-            </div>
-        </dialog>
-
     </main>
 
+    <dialog id="rulesDialog">
+        <h2>How to play Ayò</h2>
+        <ol>
+            <li>Each player starts with six holes containing four seeds each.</li>
+            <li>On your turn, choose a non-empty hole on your side.</li>
+            <li>All seeds in that hole are picked up and the hole becomes empty.</li>
+            <li>Move clockwise, dropping one seed in each following hole.</li>
+            <li>If the final seed lands in an occupied hole, pick up every seed in that hole and continue sowing.</li>
+            <li>Your turn ends when the final seed lands in an empty hole.</li>
+            <li>If that final seed lands alone in an empty hole on your side and the opposite hole contains seeds, you
+                capture both groups.</li>
+            <li>If a player has no seeds, the game ends. The other player collects the remaining seeds.</li>
+            <li>The player with more captured seeds wins. A 24–24 result is a draw.</li>
+        </ol>
+        <button id="closeRulesBtn" type="button">Close</button>
+    </dialog>
+
+    <script src="script.js"></script>
 </body>
-<script>
-    const rulesDialog = document.getElementById("rulesDialog");
-    const rulesBtn = document.getElementById("rulesBtn");
-    const closeRulesBtn = document.getElementById("closeRulesBtn");
-
-    rulesBtn.addEventListener("click", () => {
-        rulesDialog.showModal();
-    });
-
-    closeRulesBtn.addEventListener("click", () => {
-        rulesDialog.close();
-    });
-</script>
 
 </html>
